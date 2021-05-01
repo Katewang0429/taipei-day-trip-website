@@ -24,8 +24,8 @@ def validate_string(val):
 
 # connect to MySQL
 connection = pymysql.connect(host='localhost',
-                             user='root',
-                             passwd='@@shine0429',
+                             user='kate',
+                             passwd='K@wang01',
                              db='website')
 cursor = connection.cursor()
 
