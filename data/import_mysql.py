@@ -4,8 +4,9 @@ import json
 import requests
 
 # read JSON file
-file_path = "C:\\Users\\huili\\Documents\\GitHub\\taipei-day-trip-website\\data" + \
-    "\\taipei-attractions.json"
+#file_path = "C:\\Users\\huili\\Documents\\GitHub\\taipei-day-trip-website\\data" + \
+#    "\\taipei-attractions.json"
+file_path = "https://github.com/Katewang0429/taipei-day-trip-website/blob/develop/data/taipei-attractions.json"
 
 json_data = open(file_path, "r", encoding="utf-8")
 json_obj = json.load(json_data)
