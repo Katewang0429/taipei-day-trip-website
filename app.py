@@ -44,6 +44,10 @@ def attraction(id):
             cursor.close()
 
             if data:
+                images = []
+                for f in data["file"].split("|"):
+                    images.append(f)
+
                 attraction = []
                 attraction.append({
                     "id": str(data["_id"]),
@@ -55,7 +59,7 @@ def attraction(id):
                     "mrt": data["MRT"],
                     "latitude": str(data["latitude"]),
                     "longitude": str(data["longitude"]),
-                    "images": data["file"]
+                    "images": images
                 })
                 result = dict(data=attraction)
             else:
@@ -64,10 +68,12 @@ def attraction(id):
                     "message": "景點編號不正確"
                 }
 
-    except:
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
         result = {
             "error": True,
-            "message": "伺服器內部錯誤"
+            "message": "伺服器內部錯誤: " + str(e) + ", " + str(exc_type) + ", " + str(fname) + ", " + str(exc_tb.tb_lineno)
         }
     finally:
         conn.close()
