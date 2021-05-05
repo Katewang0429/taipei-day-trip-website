@@ -1,1 +1,219 @@
-testing
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Taipei Trip - 台北一日遊</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+    <div id="navigation">
+        <div class="container">
+            <div id="navigation-title">
+                台北一日遊
+            </div>
+            <div id="navigation-link">
+                <ul>
+                    <li>
+                        <a href="#">預定行程</a>
+                    </li>
+                    <li>
+                        <a href="#">登入/註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="hero-section">
+        <div class="container">
+            <div id="hero-section-title">
+                輕鬆享受台北一日悠閒
+            </div>
+            <div id="hero-section-subtitle">
+                探索每個角落，體驗城市的深度旅遊行程
+            </div>
+            <div id="hero-section-input">
+                <input type="text" class="search-input" id="keyword" placeholder="輸入景點名稱查詢">
+                <button class="search-button" id="search-button" onclick="keyword_search()">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="30" height="30" fill="url(#pattern0)" />
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0" transform="scale(0.015625)" />
+                            </pattern>
+                            <image id="image0" width="64" height="64"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFGElEQVR4Ae2aSYgdVRSGn/M8LJwgOOKIiAs3ogjqwhZdiC4UEVERcTYuggZE3YgLFdyI0YUzmKioqyg0GDGoiBglOCTEkEikFYJi6PdS5ztPkyMnVoeXouvWrepbFfN4D5qu4dz//89ft27dqdeb/CYOTByYODBxIK0DZnY0cK2qPikibwOfA2uB9cB3wGeq+rqqLhWRK8zskLQK9gKamR0hIrcDq4B/AKvxJ8CHqnqDmR24F+Q3p/SnrapPiMifNRIOmfMLcJ+ZHdRcVUclVfUW4PdEiRdNWSciV3aUSj0aMzsGeK+lxEeN2Ak897+qDSJyOrChg+RHjVhtZsfWe0wtRKvq+S1W+dGE5zv+vt/vn9BCWnGQInIqMFPzyf8ALAMeUtWbVPU6Vb0ZWKKqrwGba+KtMbOj4hQnjDKzwwFPZr4nU7y2TUSeBs6MkTAcDi8CXua/XxFrvvOVZrZfDHaymPxpzSdm9NoO4IWm76qInAJ8EGOyqj6SLLkqIODqKlGq+gdwVRVWzH0RuTOiNihwdgzegmLM7GDg5woDZlT13AURFQr79x8YVPBOF4qlPxWRuypE/OVfhvTMvV5e84JdahG5rA3uXZje0AAbQwao6vWtCej1eqr6WIgf+Lg1/rwajjZyexyLyPLWyHNgMzsA+DZgwo4sy05uRYeqvhogHnqr3QpxAbTqQajqo4UiaU6B38oMUNU307DEoQDflGkBPo1DqREFnBMgtK5HacADAT2Y2aE10qsOVdUbA4T9rictgDMCemw4HF5YnVWNCFV9PEC4qgZUstDQIMzHGcmIHCgfwOzR6o8YsiwpWSSYzyOOaChqezgSJi5MVd8qIxORp+JQ0kaFxgleY5OyiciKMgN8pjcpWSRYSJOPPiNh4sJU9ZUyA3yKKg4lbRSwskxT8hrgSZaR+Vxg2tTi0IAfA5rujkOJjALuCZBtiIRJFpZPyAwDmqaSkTmQiFweILPW+t8lWQBTFXoWlRRtdjnC8SXNkJuVqhiXbGmGWlEKWB1wfaOP1CogktyenZ09LjQ54g12EqIiiM/kBgzw8cAdxTJtnFc0yN4huqYN3l7ufKjh2eoxrZDnoKp6ARDSMNNqTax499z9j8xs/zZMMLMjgZ9CtdBnjNrg3o0JnAX8HRIBvLi7QKKDfDJ2OsTrq9G+Mp2IshwGeD4kxO95TUm1gJkvvH5SxQksLled8I4vRQG/VglS1a+8xiyEOsuyS4BNVVz5/Xc7m5fIsuzSiFfB2wT/PTsYDE6sY4Qbp6pvAL4cXhzqhs67MwF4sIY4X7l5X0RuE5HTimt53nKr6nnAvYBXd19WCyUautedCfmiZ0hM2b3tgG99WQdsqfi0lWGErndngu8HWsDTCiWxoHsi8k5nbYJXbcCf6oJEpy7fqQn5bpE1qZMo4E2r6peFa0HTOzXBe4HA/cDWOiIjYjfNzfT6Z7ihCZ0M1nZ97fLh8+KqrmtV4iLytYjcWuxU7RMmzH33fcuLT5zm09j9iqS3AV7Nl/pncQ5jvv/7lAmjCWRZtijv4U35crrvIc6y7GK/PhoXc9zQhBWtjhhjhKeMmZjQ6/UamrC82CNN+WA6x2pignfnOxfaJmEDE9a3qWevYNc0YedYvQZzjsea4PsZ58qM3f9IE14au8RHE8pN+KKk87W53+8fPxo/lsdmdhjwTL591wdO232/w2AwOGksEy5Lyhs737g9Vr3AsmQn1ycOTBxo7MC/hEhxf3jxq9IAAAAASUVORK5CYII=" />
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+            <div id="search-info">
+
+            </div>
+            <div id="welcome-image">
+                <img src="/static/welcome-image.png" alt="台北一日遊-中正紀念堂" />
+            </div>
+        </div>
+    </div>
+    <div id="container-body">
+        <div class="container">
+            <div class="attractions-group-head" id="attractions-group-head"></div>
+        </div>
+
+    </div>
+    <div id="footer">
+        <div class="copyright">
+            COPYRIGHT © 2021 台北一日遊
+        </div>
+    </div>
+
+
+
+    <script>
+        var hostIP = "204.236.160.113";
+        //var hostIP = "127.0.0.1";
+        var pageNumber = 0;
+        var noResult = false;
+
+        function status_reset() {
+            document.getElementById('search-info').textContent = "";
+            noResult = false;
+        }
+        window.onscroll = function(ev) {
+            if (noResult) {
+                return;
+            }
+            var rect = document.getElementById("footer").getBoundingClientRect();
+            var bottom = rect.bottom;
+            //console.log(bottom);
+            //console.log(window.innerHeight);
+            if (bottom <= window.innerHeight) {
+                var url = "http://" + hostIP + ":3000/api/attractions?page=" + pageNumber;
+                getDataThruAPI(url);
+            }
+        };
+
+        var url = "http://" + hostIP + ":3000/api/attractions?page=" + pageNumber;
+        getDataThruAPI(url, 0);
+
+        function keyword_search() {
+            if (document.getElementById("keyword").value == "") {
+                alert("請輸入景點名稱");
+                status_reset();
+                return;
+            }
+            var url = "api/attractions?keyword=" + document.getElementById("keyword").value;
+            getDataThruAPI(url, 1);
+        }
+
+        function getDataThruAPI(url, flag) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    //console.log(json);
+
+                    if (flag == 1) {
+                        let attractions_group = document.getElementById('attractions-group');
+                        if (attractions_group != null) {
+                            attractions_group.remove();
+                        }
+                    }
+
+                    if (json.error) {
+                        noResult = true;
+                        document.getElementById('search-info').textContent = json.message;
+                        return;
+                    } else {
+                        status_reset();
+                    }
+                    dynamicCreateElement(json, flag);
+
+                }
+            };
+            xhr.send();
+        }
+
+        function dynamicCreateElement(json, flag) {
+
+            createElementHead();
+            //console.log(json);
+            if (flag == 1) {
+
+                for (var key in json) {
+                    pageNumber = json[key].nextPage;
+                    var data = json[key].data;
+                    for (var key in data) {
+                        createElementBody(data[key].images[0], data[key].name, data[key].mrt, data[key].category)
+                    }
+                }
+            } else {
+                var data = json.data;
+                pageNumber = json.nextPage;
+                for (var key in data) {
+                    createElementBody(data[key].images[0], data[key].name, data[key].mrt, data[key].category)
+                }
+            }
+
+        }
+
+        function createElementHead() {
+            var attractions_group_head = document.getElementById('attractions-group-head');
+            attractions_group_head.className = "attractions-group-head";
+            var attractions_group = document.createElement('div');
+            attractions_group.className = "attractions-group";
+            attractions_group.setAttribute("id", "attractions-group");
+            attractions_group_head.appendChild(attractions_group);
+        }
+
+        function createElementBody(images, name, mrt, category) {
+            var attractions_group = document.getElementById('attractions-group');
+            var content = document.createElement('div');
+            content.className = "content";
+            attractions_group.appendChild(content);
+            var newImg = document.createElement('img');
+            newImg.src = images;
+            newImg.className = "image";
+            content.appendChild(newImg);
+
+            var heading_1 = document.createElement('div');
+            heading_1.className = "heading-1";
+            content.appendChild(heading_1);
+
+            var heading_name = document.createElement('div');
+            heading_name.className = "heading-name";
+            heading_1.appendChild(heading_name);
+
+            var textNode_name = document.createTextNode(name);
+            heading_name.appendChild(textNode_name);
+
+            var heading_2 = document.createElement('div');
+            heading_2.className = "heading-2";
+            content.appendChild(heading_2);
+
+            var heading_mrt = document.createElement('div');
+            heading_mrt.className = "heading-mrt";
+            heading_2.appendChild(heading_mrt);
+
+            var textNode_mrt = document.createTextNode(mrt);
+            heading_mrt.appendChild(textNode_mrt);
+
+            var heading_category = document.createElement('span');
+            heading_category.className = "heading-category";
+            heading_mrt.appendChild(heading_category);
+
+            var textNode_category = document.createTextNode(category);
+            heading_category.appendChild(textNode_category);
+        }
+    </script>
+</body>
+
+</html>
